@@ -11,6 +11,8 @@
     "test": "mocha -R spec -u tdd test.js"
   },
   "main": "./backtrack",
+  "license": "MIT",
+  "homepage": "https://github.com/russfrank/backtrack",
   "dependencies": {},
   "devDependencies": {},
   "optionalDependencies": {},
