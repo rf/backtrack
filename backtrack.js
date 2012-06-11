@@ -12,7 +12,7 @@
 
 // ### solve
 //
-// * `count` is the total number of variables.
+// * `variables` is the list of all variables
 // * `clauses` is an array of clauses.
 // * `model` is a set of variable assignments. 
 
