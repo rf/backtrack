@@ -28,7 +28,7 @@ var clauses = [
 var variables = ['blue', 'green', 'yellow', 'pink', 'purple'];
 
 var model = solve(variables, clauses);
-// model now contains { purple: true, pink: true, yellow: true, green: true }
+// model => { purple: true, pink: true, yellow: true, green: true }
 ```
 
 Read the [annotated source](http://russfrank.us/static/backtrack/backtrack.html)!
@@ -38,6 +38,16 @@ Tests are written in mocha
 ```shell
 $ npm test
 ```
+
+You can also pass in a model and the solver will inform you if the expression
+is satisfiable under the assumptions you have given it:
+
+```javascript
+var solvable = solve(variables, clauses, {blue: true, yellow: false, green: true});
+// solvable => false
+```
+
+Since the second clause is now unsolvable, the entire expression is unsolvable.
 
 # License
 MIT
