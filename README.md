@@ -31,6 +31,8 @@ var model = solve(variables, clauses);
 // model now contains { purple: true, pink: true, yellow: true, green: true }
 ```
 
+Read the [annotated source](http://russfrank.us/static/backtrack/backtrack.html)!
+
 Tests are written in mocha
 
 ```shell
