@@ -1,0 +1,17 @@
+{
+  "author": "Russ Frank <me@russfrank.us>",
+  "name": "backtrack",
+  "description": "simple backtracking sat solver",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "github.com:russfrank/backtrack"
+  },
+  "main": "backtrack.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
