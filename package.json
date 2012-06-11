@@ -10,7 +10,7 @@
   "scripts" : {
     "test": "mocha -R spec -u tdd test.js"
   },
-  "main": "backtrack.js",
+  "main": "./backtrack",
   "dependencies": {},
   "devDependencies": {},
   "optionalDependencies": {},
