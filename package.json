@@ -7,6 +7,9 @@
     "type": "git",
     "url": "github.com:russfrank/backtrack"
   },
+  "scripts" : {
+    "test": "mocha -R spec -u tdd test.js"
+  },
   "main": "backtrack.js",
   "dependencies": {},
   "devDependencies": {},
