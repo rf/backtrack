@@ -81,12 +81,7 @@ function resolve (variable, model) {
   } else return model[variable];
 }
 
-var phrase = [
-  ['blue', 'green', '-yellow'],
-  ['-blue', '-green', 'yellow'],
-  ['pink', 'purple', 'green', 'blue', '-yellow']
-];
-
-var things = ['blue', 'green', 'yellow', 'pink', 'purple'];
-
-console.log(solve(things, phrase));
+exports.solve = solve;
+exports.update = update;
+exports.satisfiable = satisfiable;
+exports.resolve = resolve;
