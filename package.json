@@ -14,7 +14,10 @@
   "license": "MIT",
   "homepage": "https://github.com/russfrank/backtrack",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "*",
+    "chai": "*"
+  },
   "optionalDependencies": {},
   "engines": {
     "node": "*"
