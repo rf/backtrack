@@ -34,6 +34,7 @@ function solve (variables, clauses, model) {
   for (var i = 0; i < variables.length; i++) {
     if (model[variables[i]] === undefined) {
       choice = variables[i];
+      break;
     }
   }
 
