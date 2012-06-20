@@ -1,5 +1,7 @@
 # backtrack
 
+[![build status](https://secure.travis-ci.org/russfrank/backtrack.png)](http://travis-ci.org/russfrank/backtrack)
+
 This is a simple backtracking SAT solver written in javascript.  I wrote it
 partially because I needed a SAT solver and partially because I was unable to
 find a simple example of such an algorithm online.
