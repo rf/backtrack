@@ -110,3 +110,57 @@ suite('solve', function () {
     });
   });
 });
+
+suite('builder', function () {
+  var exp;
+
+  setup(function () { exp = new backtrack.Expression(); });
+
+  test('clauseEqual', function () {
+    assert(backtrack.Expression.clauseEqual(['pink', 'blue'], ['blue', 'pink']));
+    assert(backtrack.Expression.clauseEqual(['-pink', 'blue'], ['blue', '-pink', 'orange']) === false);
+    assert(backtrack.Expression.clauseEqual(['-pink', 'blue', 'orange'], ['blue', '-pink', 'orange']));
+    assert(backtrack.Expression.clauseEqual(['-pink', 'blue'], ['blue', '-pink']));
+  });
+
+  test('and', function () {
+    exp.and('blue', 'green');
+    exp.and('pink');
+    assert(exp.indexOf(['pink']) !== -1, 'expression contains a clause [pink]');
+    assert(exp.indexOf(['blue']) !== -1, 'expression contains a clause [pink]');
+    assert(exp.indexOf(['green']) !== -1, 'expression contains a clause [pink]');
+  });
+
+  test('or', function () {
+    exp.or('blue', 'green');
+    exp.or('pink');
+    exp.or('purple', '-yellow', 'green');
+    assert(exp.indexOf(['blue', 'green']) != -1, 'expression contains a clause [blue, green]');
+  });
+
+  suite('xor', function () {
+
+    test('two literal', function () {
+      exp.xor('foo', 'bar');
+      assert(exp.indexOf(['foo', 'bar']) != -1);
+      assert(exp.indexOf(['-foo', '-bar']) != -1);
+    });
+
+    test('blah', function () {
+    });
+
+  });
+
+  test('functional solving test', function () {
+    exp.or('blue', 'green', '-yellow');
+    exp.or('-blue', '-green', 'yellow');
+    exp.or('pink', 'purple', 'green', 'blue', '-yellow');
+
+    var model = exp.solve();
+
+    exp.forEach(function (clause) {
+      assert(backtrack.satisfiable(clause, model) === true);
+    });
+  });
+});
+

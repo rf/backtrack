@@ -86,3 +86,4 @@ exports.solve = solve;
 exports.update = update;
 exports.satisfiable = satisfiable;
 exports.resolve = resolve;
+exports.Expression = require('./expression');
