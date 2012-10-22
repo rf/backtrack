@@ -2,7 +2,7 @@
   "author": "Russ Frank <me@russfrank.us>",
   "name": "backtrack",
   "description": "simple backtracking sat solver",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "github.com:russfrank/backtrack"
