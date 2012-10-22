@@ -1,4 +1,6 @@
-// Boolean expression builder
+// Boolean expression builder.  Note that the connector for clauses is `OR`;
+// so, when calling the instance methods `xor`, `and`, and `or`, the clauses
+// you're generating are `AND`ed with the existing clauses in the expression.
 
 var util = require('util');
 
@@ -15,6 +17,7 @@ Expression.prototype.or = function () {
   var clause = Array.prototype.slice.call(arguments);
   this._ensure(clause);
   this.push(clause);
+  return this;
 };
 
 // ### xor
@@ -36,6 +39,8 @@ Expression.prototype.xor = function () {
       ]);
     }
   }
+
+  return this;
 };
 
 // ### and
@@ -45,6 +50,7 @@ Expression.prototype.and = function () {
   var that = this;
   this._ensure(literals);
   literals.forEach(function (item) { that.push([item]); });
+  return this;
 };
 
 // ### solve
@@ -61,7 +67,9 @@ Expression.prototype._ensure = function ensure (array) {
   var that = this;
   if (!Array.isArray(array)) array = Array.prototype.slice.call(arguments);
 
-  array.forEach(function (item) { that._literals[item] = true; });
+  array.forEach(function (item) { 
+    that._literals[item.replace("-", "")] = true;
+  });
 };
 
 Expression.prototype.indexOf = function (clause) {

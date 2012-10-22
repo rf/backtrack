@@ -146,7 +146,11 @@ suite('builder', function () {
       assert(exp.indexOf(['-foo', '-bar']) != -1);
     });
 
-    test('blah', function () {
+    test('three literal', function () {
+      exp.xor('foo', 'bar', 'baz');
+      assert(exp.indexOf(['foo', 'bar', 'baz']) != -1);
+      assert(exp.indexOf(['-foo', '-bar']) != -1);
+      assert(exp.indexOf(['-bar', '-baz']) != -1);
     });
 
   });
